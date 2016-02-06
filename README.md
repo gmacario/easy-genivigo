@@ -26,6 +26,6 @@ $ ./runme.sh
 
 ### License
 
-easy-jenkins is licensed under the MIT License - for details please see the `LICENSE` file.
+easy-genivigo is licensed under the MIT License - for details please see the `LICENSE` file.
 
 Copyright 2016, [Gianpaolo Macario](http://gmacario.github.io/)
