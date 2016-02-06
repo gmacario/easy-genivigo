@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Project: easy-jenkins
+# Project: easy-genivigo
 #
 # Description: Top-level script to start the Docker containers
 #
@@ -19,7 +19,7 @@ set -e
 if [[ "${VM}" = "" ]]; then
     # If VM is not defined, try setting it to active docker-machine
     # otherwise just pick a default name
-    VM=$(docker-machine active) || VM=easy-jenkins
+    VM=$(docker-machine active) || VM=easy-genivigo
 fi
 [[ "${VM_NUM_CPUS}" = "" ]] && VM_NUM_CPUS=2
 [[ "${VM_MEM_SIZEMB}" = "" ]] && VM_MEM_SIZEMB=2048
@@ -45,8 +45,8 @@ fi
 eval $(docker-machine env ${VM})
 docker-compose up -d
 
-echo "INFO: Browse http://$(docker-machine ip ${VM}):9080/ to access the Jenkins dashboard"
-echo "INFO: Run the following command to configure your shell:"
-echo "INFO: eval \$(docker-machine env ${VM})"
+# echo "INFO: Browse http://$(docker-machine ip ${VM}):9080/ to access the Go.CD dashboard"
+# echo "INFO: Run the following command to configure your shell:"
+# echo "INFO: eval \$(docker-machine env ${VM})"
 
 # EOF
