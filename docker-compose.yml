@@ -1,0 +1,35 @@
+# ===========================================================================
+# Project:    https://github.com/gmacario/easy-genivigo
+# File:       docker-compose.yml
+#
+# See also:
+# - Compose file reference: https://docs.docker.com/compose/compose-file/
+# ===========================================================================
+
+version: '2'
+
+services:
+  goserver:
+    image: gocd/gocd-server
+    # build: mygenivigo
+    ports:
+      - "8153:8153"
+    # tty: true
+    # privileged: true
+
+  goagent:
+    image: gmacario/build-yocto-genivi:latest
+    user: go
+    # entrypoint: ""
+    command: "/usr/local/bin/run-gocd-agent.sh"
+    # links:
+    #     - mygenivigo:master
+    #   volumes:
+    #     - data:/home/genivigo
+
+# volumes:
+#     data:
+#     downloads:
+#     sstate-cache:
+
+# EOF
