@@ -45,8 +45,10 @@ fi
 eval $(docker-machine env ${VM})
 docker-compose up -d
 
-# echo "INFO: Browse http://$(docker-machine ip ${VM}):9080/ to access the Go.CD dashboard"
-# echo "INFO: Run the following command to configure your shell:"
-# echo "INFO: eval \$(docker-machine env ${VM})"
+echo "INFO: Run the following command to configure your shell:"
+echo "INFO: eval \$(docker-machine env ${VM})"
+
+echo "INFO: Browse the following URL to access the Go.CD dashboard:"
+echo "INFO: http://$(docker-machine ip ${VM}):$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8153/tcp") 0).HostPort}}' easygenivigo_goserver_1)"
 
 # EOF
