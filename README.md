@@ -12,6 +12,26 @@ $ cd easy-genivigo
 $ ./runme.sh
 ```
 
+If the script executes successfully it will display a message like the following:
+
+```
+INFO: Browse the following URL to access the Go.CD dashboard:
+INFO: http://192.168.99.100:8153
+```
+
+The Go.CD dashboard may then be accessed by opening the displayed URL using a recent Internet browser.
+
+The behavior of the `runme.sh` script may be customized through some environment variables - please refer to the comments inside the script for details.
+
+You will also be reminded to use the following command
+
+```
+INFO: Run the following command to configure your shell:
+INFO: eval $(docker-machine env easy-genivigo)
+```
+
+in order to setup the environment variables so that `docker-compose` and `docker` will interact with the correct Docker engine.
+
 ### System Requirements
 
 * A modern machine with at least: dual-core CPU, 8 GB RAM, 100 GB disk space
