@@ -4,6 +4,14 @@ Easily deploy a Go.CD infrastructure via [docker-machine](https://www.docker.com
 
 This project may help develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
 
+### TL;DR
+
+```
+$ git clone https://github.com/gmacario/easy-genivigo
+$ cd easy-genivigo
+$ ./runme.sh
+```
+
 ### System Requirements
 
 * A modern machine with at least: dual-core CPU, 8 GB RAM, 100 GB disk space
@@ -15,14 +23,6 @@ This project may help develop and test new pipelines, agents, features, etc. loc
 
 1. A fast, multi-core server on your local network
 2. An instance on a public cloud, such as [Amazon EC2](https://aws.amazon.com/it/ec2/), [DigitalOcean](https://www.digitalocean.com/), etc.
-
-### TL;DR
-
-```
-$ git clone https://github.com/gmacario/easy-genivigo
-$ cd easy-genivigo
-$ ./runme.sh
-```
 
 ### License
 
