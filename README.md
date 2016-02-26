@@ -1,6 +1,6 @@
 # easy-genivigo
 
-Easily deploy a Go.CD infrastructure via [docker-machine](https://www.docker.com/docker-machine) and [docker-compose](https://www.docker.com/docker-compose).
+Easily deploy a [Go.CD](https://www.go.cd/) infrastructure via [docker-machine](https://www.docker.com/docker-machine) and [docker-compose](https://www.docker.com/docker-compose).
 
 This project may help develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
 
@@ -34,7 +34,7 @@ in order to setup the environment variables so that `docker-compose` and `docker
 
 ### System Requirements
 
-In order to run easy-genivigo you need a recent 64-bit x86 host with: 
+In order to run easy-genivigo you need a recent 64-bit x86 host with:
 
 1. Minimum HW requirements: a dual-core CPU, 8 GB RAM, 100 GB disk space
 2. [Docker](https://www.docker.com/) tools (see Note 1)
