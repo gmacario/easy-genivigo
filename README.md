@@ -51,7 +51,7 @@ In order to run easy-genivigo you need a recent 64-bit x86 host with:
 1. A fast, multi-core server on your local network
 2. An instance on a public cloud, such as [Amazon EC2](https://aws.amazon.com/it/ec2/), [DigitalOcean](https://www.digitalocean.com/), etc.
 
-### License
+### License and Copyright
 
 easy-genivigo is licensed under the MIT License - for details please see the `LICENSE` file.
 
