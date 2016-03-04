@@ -38,9 +38,9 @@ In order to run easy-genivigo you need a recent 64-bit x86 host with:
 
 1. Minimum HW requirements: a dual-core CPU, 8 GB RAM, 100 GB disk space
 2. [Docker](https://www.docker.com/) tools (see Note 1)
-   * Docker Engine (see Note 2)
-   * Docker Compose
-   * Docker Machine
+   * Docker Engine version 1.10.0 or later (see Note 2)
+   * Docker Compose version 1.6.0 or later
+   * Docker Machine version 0.6.0 or later
 5. A recent Internet browser (i.e. [Google Chrome](https://www.google.com/chrome/))
 6. A fast Internet connection
 
