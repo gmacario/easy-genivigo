@@ -88,10 +88,14 @@ Step 3: Stage/Job
 
       ```
       run
+      -u
+      build
+      -w
+      /home/build
       gmacario/build-capi-native
       /bin/bash
       -c
-      git clone git://git.projects.genivi.org/common-api/c-poc.git && cd c-poc && ls -la && autoreconf && ./configure && make && sudo make install
+      git clone git://git.projects.genivi.org/common-api/c-poc.git && cd c-poc && autoreconf -i && ./configure && make && sudo make install
       ```
 
     - Working Directory: (none)
