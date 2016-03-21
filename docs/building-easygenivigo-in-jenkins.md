@@ -44,7 +44,8 @@ This procedure may be useful to verify non-regressions of a new feature/bugfix b
 #!/bin/bash -xe
 
 docker-compose build --pull
-./runme.sh
+docker-compose up
+# ./runme.sh
 
 # EOF
 ```
