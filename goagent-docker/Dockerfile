@@ -20,6 +20,10 @@ RUN curl -o /usr/local/bin/gosu -fsSL \
 RUN curl -fsSL https://get.docker.com/ | sh
 RUN usermod -aG docker go
 
+# Workaround until user-namespaces are working
+# Add user "go" to group "docker" of host (works with boot2docker)
+RUN usermod -aG 100 go
+
 # Install docker-compose
 RUN curl -o /usr/local/bin/docker-compose -fsSL \
     "https://github.com/docker/compose/releases/download/1.6.2/docker-compose-$(uname -s)-$(uname -m)" && \
