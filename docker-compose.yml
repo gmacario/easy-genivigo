@@ -17,18 +17,18 @@ services:
     # tty: true
     # privileged: true
 
-  goagent:
-    image: gmacario/build-yocto-genivi:latest
-    user: go
-    working_dir: "/var/lib/go-agent"
-    # entrypoint: ""
-    command: "/usr/local/bin/run-gocd-agent.sh"
-    environment:
-      - GO_SERVER=goserver
-    # links:
-    #     - mygenivigo:master
-    #   volumes:
-    #     - data:/home/genivigo
+  # goagent-yocto-genivi:
+  #   image: gmacario/build-yocto-genivi:latest
+  #   user: go
+  #   working_dir: "/var/lib/go-agent"
+  #   # entrypoint: ""
+  #   command: "/usr/local/bin/run-gocd-agent.sh"
+  #   environment:
+  #     - GO_SERVER=goserver
+  #   # links:
+  #   #     - mygenivigo:master
+  #   #   volumes:
+  #   #     - data:/home/genivigo
 
 # volumes:
 #     data:
