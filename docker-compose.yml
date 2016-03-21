@@ -10,7 +10,7 @@ version: '2'
 
 services:
   goserver:
-    image: gocd/gocd-server
+    image: gocd/gocd-server:16.2.1
     # build: mygenivigo
     ports:
       - "8153:8153"
