@@ -18,7 +18,7 @@ Browse `${GOCD_URL}` as shown in the console (example: http://192.168.99.100:815
 
 ```
 $ eval $(docker-machine env easy-genivigo)
-$ docker-console logs
+$ docker-compose logs
 ```
 
 ### Create pipeline `build_capi_native`
