@@ -51,6 +51,25 @@ In order to run easy-genivigo you need a recent 64-bit x86 host with:
 1. A fast, multi-core server on your local network
 2. An instance on a public cloud, such as [Amazon EC2](https://aws.amazon.com/it/ec2/), [DigitalOcean](https://www.digitalocean.com/), etc.
 
+### Architecture Overview
+
+Here are some architecture overview of the easy-genivigo. For details please see `docker-compose.yml` and the related `Dockerfile`s.
+
+#### Service `goserver`
+
+This is a default Go.CD server deployed inside a Docker container
+
+#### Service `goagent-docker`
+
+Service `goagent-docker` instantiates a new Go.CD agent as Docker container.
+This agent includes the `docker` and `docker-compose` commands which communicates with the Docker engine where both the Go.CD server and the other agents running.
+
+To connect to other Docker engines, the agent should be customized by properly configuring the `DOCKER_xxx` environment variables.
+
+#### Service `goagent-yocto-genivi`
+
+Service `goagent-docker` instantiates another Go.CD agent running inside a container based on public image `gmacario/build-yocto-genivi`. See project https://github.com/gmacario/easy-build for details.
+
 ### License and Copyright
 
 easy-genivigo is licensed under the MIT License - for details please see the `LICENSE` file.
