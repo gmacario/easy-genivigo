@@ -10,9 +10,8 @@ $ cd easy-genivigo
 $ ./runme.sh
 ```
 
-Browse `${GENIVIGO_URL}` (example: http://192.168.99.100:8153)
+Browse `${GOCD_URL}` (example: http://192.168.99.100:8153), then click **Admin** > **Pipelines**.
 
-* Click **Admin** > **Pipelines**.
 * Click **Create a new pipeline**
 
 Step 1: Basic Settings
