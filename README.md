@@ -1,10 +1,10 @@
 # easy-genivigo
 
-Easily deploy a [Go.CD](https://www.go.cd/) infrastructure via [docker-machine](https://www.docker.com/docker-machine) and [docker-compose](https://www.docker.com/docker-compose).
-
-This project may be useful to develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
+Easily deploy a [Go.CD](https://www.go.cd/) infrastructure using [docker-machine](https://www.docker.com/docker-machine) and [docker-compose](https://www.docker.com/docker-compose).
 
 Please see [CHANGELOG](CHANGELOG.md) for main changes since previous release.
+
+This project may be useful to develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
 
 ### TL;DR
 
@@ -32,14 +32,14 @@ INFO: eval $(docker-machine env easy-genivigo)
 
 in order to setup the environment variables so that `docker-compose` and `docker` will interact with the correct Docker engine.
 
-**NOTE 1**: On a clean installation it may take a few minutes before the Go.CD server begins serving requests from your web client. You may check the startup progress with the following command:
+**Note 1**: On a clean installation it may take a few minutes before the Go.CD server begins serving requests from your web client. You may check the startup progress with the following command:
 
 ```
 $ eval $(docker-machine env easy-genivigo)
 $ docker-compose logs
 ```
 
-**NOTE 2**: The behavior of the `runme.sh` script may be customized through some environment variables - please refer to the comments inside the script for details.
+**Note 2**: The behavior of the `runme.sh` script may be customized using environment variables - please refer to the comments inside the script for details.
 
 ### System Requirements
 
@@ -71,14 +71,14 @@ This is a default Go.CD server deployed inside a Docker container.
 
 #### Service `goagent-docker`
 
-Service `goagent-docker` instantiates a new Go.CD agent as Docker container.
-This agent includes the `docker` and `docker-compose` commands which communicates with the Docker engine which is used to execute both the Go.CD server and its agents.
+Service `goagent-docker` instantiates a new Go.CD agent inside a Docker container.
+This agent includes the `docker` and `docker-compose` commands to interact with the Docker engine used to run the Go.CD server and its agents.
 
-To connect to a different Docker engine, the agent should be customized by properly configuring the `DOCKER_xxx` environment variables.
+To connect to a different Docker engine, the agent should be customized by properly configuring the `DOCKER_HOST` environment variable. See https://docs.docker.com/machine/reference/env for details).
 
 #### Service `goagent-yocto-genivi`
 
-Service `goagent-docker` instantiates another Go.CD agent running inside a container based on public image `gmacario/build-yocto-genivi`. See project https://github.com/gmacario/easy-build for details.
+Service `goagent-docker` instantiates another Go.CD agent running inside a container based on public Docker image `gmacario/build-yocto-genivi`. See https://github.com/gmacario/easy-build for details.
 
 ### License and Copyright
 
