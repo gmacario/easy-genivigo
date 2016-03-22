@@ -4,6 +4,8 @@ Easily deploy a [Go.CD](https://www.go.cd/) infrastructure via [docker-machine](
 
 This project may be useful to develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
 
+Please see [CHANGELOG](CHANGELOG.md) for main changes since previous release.
+
 ### TL;DR
 
 ```
