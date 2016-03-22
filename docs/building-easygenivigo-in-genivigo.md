@@ -1,10 +1,10 @@
 Building easy-genivigo in easy-genivigo
 =======================================
 
-**WORK-IN-PROGRESS**
-
 Step-by-step instructions
 -------------------------
+
+### Start Go.CD Server
 
 ```
 $ git clone https://github.com/gmacario/easy-genivigo
@@ -12,9 +12,19 @@ $ cd easy-genivigo
 $ ./runme.sh
 ```
 
-Browse `${GENIVIGO_URL}` (example: http://192.168.99.100:8153)
+Browse `${GOCD_URL}` as shown in the console (example: http://192.168.99.100:8153) to access the Go.CD dashboard.
 
-* Click **Admin** > **Pipelines**.
+**NOTE**: On a clean installation it may take a few minutes before the Go.CD server begins serving requests from your web client. You may check the startup progress with the following command:
+
+```
+$ eval $(docker-machine env easy-genivigo)
+$ docker-console logs
+```
+
+### Create pipeline `build_easygenivigo`
+
+Browse `${GOCD_URL}`, then click **Admin** > **Pipelines**.
+
 * Click **Create a new pipeline**
 
 Step 1: Basic Settings
@@ -36,9 +46,13 @@ Click **NEXT**.
 Step 3: Stage/Job
 
 * Configuration type: Define Stages
+
   - Stage Name: `defaultStage`
   - Trigger Type: On Success
+
+
 * Initial Job and Task
+
   - Job Name: `defaultJob`
   - Task Type: More...
     - Command:
@@ -56,9 +70,10 @@ Step 3: Stage/Job
 
     - Working Directory: (none)
 
-    then click **SAVE**.
+    then click **FINISH**.
 
   * Add new task > More...
+
     - Command:
 
       ```
@@ -73,7 +88,10 @@ Step 3: Stage/Job
 
     - Working Directory: (none)
 
+    then click **SAVE**.
+
   * Add new task > More...
+
     - Command:
 
       ```
@@ -84,21 +102,24 @@ Step 3: Stage/Job
 
       ```
       ps
+      -a
       ```
 
     - Working Directory: (none)
 
-Click **FINISH**.
+    then click **SAVE**.
 
 Review pipeline `build_easygenivigo`, then click **SAVE**.
 
-Browse `${GENIVIGO_URL}`, then click **PIPELINES**.
+### Run pipeline `build_easygenivigo`
+
+Browse `${GOCD_URL}`, then click **PIPELINES**.
 
 * Start pipeline `build_easygenivigo`.
 
 Wait until pipeline `build_easygenivigo` finishes, then review log.
 
-**NOTE**: If the pipeline includes command `docker-compose up`, the pipeline will fail as port 8153 is already allocated.
+**NOTE**: If the pipeline includes command `docker-compose up`, this will fail as port 8153 is already allocated by service `goserver`.
 
 ```
 ...
