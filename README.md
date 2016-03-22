@@ -2,7 +2,7 @@
 
 Easily deploy a [Go.CD](https://www.go.cd/) infrastructure via [docker-machine](https://www.docker.com/docker-machine) and [docker-compose](https://www.docker.com/docker-compose).
 
-This project may help develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
+This project may be useful to develop and test new pipelines, agents, features, etc. locally before deploying them to <https://go.genivi.org/>.
 
 ### TL;DR
 
@@ -19,9 +19,7 @@ INFO: Browse the following URL to access the Go.CD dashboard:
 INFO: http://192.168.99.100:8153
 ```
 
-The Go.CD dashboard may then be accessed by opening the displayed URL using a recent Internet browser.
-
-The behavior of the `runme.sh` script may be customized through some environment variables - please refer to the comments inside the script for details.
+To access the Go.CD dashboard, browse `${GOCD_URL}` as shown in the console (example: http://192.168.99.100:8153) using a recent Internet browser.
 
 You will also be reminded to use the following command
 
@@ -31,6 +29,15 @@ INFO: eval $(docker-machine env easy-genivigo)
 ```
 
 in order to setup the environment variables so that `docker-compose` and `docker` will interact with the correct Docker engine.
+
+**NOTE 1**: On a clean installation it may take a few minutes before the Go.CD server begins serving requests from your web client. You may check the startup progress with the following command:
+
+```
+$ eval $(docker-machine env easy-genivigo)
+$ docker-compose logs
+```
+
+**NOTE 2**: The behavior of the `runme.sh` script may be customized through some environment variables - please refer to the comments inside the script for details.
 
 ### System Requirements
 
@@ -53,18 +60,19 @@ In order to run easy-genivigo you need a recent 64-bit x86 host with:
 
 ### Architecture Overview
 
-Here are some architecture overview of the easy-genivigo. For details please see `docker-compose.yml` and the related `Dockerfile`s.
+This section provides an architecture overview of easy-genivigo.
+Please refer to `docker-compose.yml` and the `Dockerfile` of each service for details.
 
 #### Service `goserver`
 
-This is a default Go.CD server deployed inside a Docker container
+This is a default Go.CD server deployed inside a Docker container.
 
 #### Service `goagent-docker`
 
 Service `goagent-docker` instantiates a new Go.CD agent as Docker container.
-This agent includes the `docker` and `docker-compose` commands which communicates with the Docker engine where both the Go.CD server and the other agents running.
+This agent includes the `docker` and `docker-compose` commands which communicates with the Docker engine which is used to execute both the Go.CD server and its agents.
 
-To connect to other Docker engines, the agent should be customized by properly configuring the `DOCKER_xxx` environment variables.
+To connect to a different Docker engine, the agent should be customized by properly configuring the `DOCKER_xxx` environment variables.
 
 #### Service `goagent-yocto-genivi`
 
