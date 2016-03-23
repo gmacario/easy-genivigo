@@ -4,13 +4,19 @@ Testing goagent-docker
 Step-by-step instructions
 -------------------------
 
+### Start Go.CD Server
+
 ```
 $ git clone https://github.com/gmacario/easy-genivigo
 $ cd easy-genivigo
 $ ./runme.sh
 ```
 
-Browse `${GOCD_URL}` (example: http://192.168.99.100:8153), then click **Admin** > **Pipelines**.
+Browse `${GOCD_URL}` (example: http://192.168.99.100:8153) to access the Go.CD dashboard.
+
+### Create pipeline `test_docker`
+
+Browse `${GOCD_URL}`, then click **Admin** > **Pipelines**.
 
 * Click **Create a new pipeline**
 
@@ -33,18 +39,62 @@ Click **NEXT**.
 Step 3: Stage/Job
 
 * Configuration type: Define Stages
+
   - Stage Name: `defaultStage`
   - Trigger Type: On Success
+
+
 * Initial Job and Task
+
   - Job Name: `defaultJob`
   - Task Type: More...
     - Command: `docker`
-    - Arguments: `info`
+      
+    - Arguments:
+    
+      ```
+      --version
+      ```
+      
   - Working Directory: (none)
 
-Click **FINISH**.
+then click **FINISH**.
 
-Review pipeline `test_docker`, then click **SAVE**.
+* Select pipeline `test_docker` > `defaultStage` > `defaultJob`
+
+  - Add new task > More...
+
+    - Command: `docker`
+
+    - Arguments:
+
+      ```
+      info
+      ```
+
+    - Working Directory: (none)
+
+then click **SAVE**.
+
+* Select pipeline `test_docker` > `defaultStage` > `defaultJob`
+
+  - Add new task > More...
+
+    - Command: `docker-compose`
+
+    - Arguments:
+
+      ```
+      --version
+      ```
+
+    - Working Directory: (none)
+
+then click **SAVE**.
+
+### Run pipeline `test_docker`
+
+Browse `${GOCD_URL}`, then start pipeline `test_docker`.
 
 Wait until pipeline `test_docker` is executed, then review job log
 
