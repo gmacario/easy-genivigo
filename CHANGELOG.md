@@ -3,7 +3,7 @@ Changelog
 
 ## v0.0.3 (not released yet)
 
-- TODO
+- testing-goagent-docker: Add more steps [#10](https://github.com/gmacario/easy-genivigo/pull/10)
 
 ## v0.0.2 (2016-03-22)
 
