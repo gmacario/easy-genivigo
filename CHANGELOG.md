@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## v1.0.1 (not released yet)
+
+- CHANGELOG.md: Reformat some bad entries in v0.0.2
+
 ## v1.0.0 (2016-05-11)
 
 - testing-goagent-docker: Add more steps [#10](https://github.com/gmacario/easy-genivigo/pull/10)
