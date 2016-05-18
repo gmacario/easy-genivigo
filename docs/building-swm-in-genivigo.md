@@ -74,7 +74,13 @@ Click **FINISH**.
       - Task Type: More...
       - Properties: 
         - Command: `bash`
-        - Arguments: `true`
+        - Arguments: 
+        
+        ```
+        -c
+        true
+        ```
+
         - Working Directory: (none)
 
 * Stages > Add new stage
@@ -111,9 +117,10 @@ Browse `${GOCD_URL}`, then click **PIPELINES**.
 
 Wait until pipeline `software-loading-manager` finishes, then review build log.
 
+**FIXME**: The pipeline fails in `runSWLMPocStage` - see https://at.projects.genivi.org/jira/browse/TOOL-23.
+
 ```
 TODO
 ```
-
 
 <!-- EOF -->
