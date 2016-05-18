@@ -61,14 +61,21 @@ Step 3: Stage/Job
         - Arguments: `-c printenv && true`
         - Working Directory: (none)
 
+Click **FINISH**.
+
+* Stages > Add new stage
+
   - Stage Name: `compileCppStage`
   - Trigger Type: On Success
     * Initial Job and Task
       - Job Name: `compileCppJob`
-      - Task Type: Custom Command
+      - Task Type: More...
       - Properties: 
         - Command: `bash`
         - Arguments: `true`
+        - Working Directory: (none)
+
+* Stages > Add new stage
 
   - Stage Name: `runSWLMPocStage`
   - Trigger Type: On Success
@@ -91,49 +98,6 @@ Step 3: Stage/Job
       - Working Directory: (none)
 
     then click **SAVE**.
-
-  * Add new task > More...
-    - Command:
-
-      ```
-      docker
-      ```
-
-    - Arguments:
-
-      ```
-      pull
-      gmacario/build-capi-native
-      ```
-
-    - Working Directory: (none)
-
-  * Add new task > More...
-    - Command:
-
-      ```
-      docker
-      ```
-
-    - Arguments:
-
-      ```
-      run
-      --rm
-      --user
-      build
-      --workdir
-      /home/build
-      gmacario/build-capi-native
-      /bin/bash
-      -xe
-      -c
-      git clone git://git.projects.genivi.org/common-api/c-poc.git && cd c-poc && autoreconf -i && ./configure && make && sudo make install
-      ```
-
-    - Working Directory: (none)
-
-Click **FINISH**.
 
 Review pipeline `software-loading-manager`, then click **SAVE**.
 
