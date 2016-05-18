@@ -55,10 +55,11 @@ Step 3: Stage/Job
   - Trigger Type: On Success
     * Initial Job and Task
       - Job Name: `commonApiGenerationJob`
-      - Task Type: Custom Command
+      - Task Type: More...
       - Properties: 
         - Command: `bash`
         - Arguments: `-c printenv && true`
+        - Working Directory: (none)
 
   - Stage Name: `compileCppStage`
   - Trigger Type: On Success
