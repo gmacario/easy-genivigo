@@ -1,8 +1,6 @@
 Building GENIVI SWM PoC in easy-genivigo
 ========================================
 
-**WORK-IN-PROGRESS**
-
 Step-by-step instructions
 -------------------------
 
@@ -24,8 +22,6 @@ $ docker-compose logs
 ```
 
 ### Create pipeline `software-loading-manager`
-
-**TODO**
 
 Browse `${GOCD_URL}`, then click **Admin** > **Pipelines**.
 
@@ -58,7 +54,13 @@ Step 3: Stage/Job
       - Task Type: More...
       - Properties: 
         - Command: `bash`
-        - Arguments: `-c printenv && true`
+        - Arguments: 
+        
+        ```
+        -c
+        printenv && true
+        ```
+        
         - Working Directory: (none)
 
 Click **FINISH**.
@@ -112,5 +114,6 @@ Wait until pipeline `software-loading-manager` finishes, then review build log.
 ```
 TODO
 ```
+
 
 <!-- EOF -->
