@@ -49,19 +49,19 @@ Step 3: Stage/Job
 
   - Stage Name: `commonApiGenerationStage`
   - Trigger Type: On Success
-    * Initial Job and Task
-      - Job Name: `commonApiGenerationJob`
-      - Task Type: More...
-      - Properties: 
-        - Command: `bash`
-        - Arguments: 
-        
-        ```
-        -c
-        printenv && true
-        ```
-        
-        - Working Directory: (none)
+  - Initial Job and Task
+    - Job Name: `commonApiGenerationJob`
+    - Task Type: More...
+    - Properties: 
+      - Command: `bash`
+      - Arguments: 
+      
+      ```
+      -c
+      printenv && true
+      ```
+      
+      - Working Directory: (none)
 
 Click **FINISH**.
 
@@ -69,51 +69,52 @@ Click **FINISH**.
 
   - Stage Name: `compileCppStage`
   - Trigger Type: On Success
-    * Initial Job and Task
-      - Job Name: `compileCppJob`
-      - Task Type: More...
-      - Properties: 
-        - Command: `bash`
-        - Arguments: 
-        
-        ```
-        -c
-        true
-        ```
+  - Initial Job and Task
+    - Job Name: `compileCppJob`
+    - Task Type: More...
+    - Properties: 
+      - Command: `bash`
+      - Arguments: 
+      
+      ```
+      -c
+      true
+      ```
+      
+      - Working Directory: (none)
 
-        - Working Directory: (none)
+then click **SAVE**.
 
 * Stages > Add new stage
 
   - Stage Name: `runSWLMPocStage`
   - Trigger Type: On Success
+  - Initial Job and Task
+    - Job Name: `runSWLMPocJob`
+    - Task Type: More...
+    - Command:
 
-    * Initial Job and Task
-      - Job Name: `runSWLMPocJob`
-      - Task Type: More...
-      - Command:
-  
-        ```
-        sudo
-        ```
-  
-      - Arguments:
-  
-        ```
-        sh start_swm.sh -r
-        ```
-  
-      - Working Directory: (none)
+      ```
+      sudo
+      ```
 
-    then click **SAVE**.
+    - Arguments:
 
-Review pipeline `software-loading-manager`, then click **SAVE**.
+      ```
+      sh start_swm.sh -r
+      ```
+
+    - Working Directory: (none)
+
+then click **SAVE**.
+
+Review pipeline `software-loading-manager` to make sure all the steps are as described above.
 
 ### Run pipeline `software-loading-manager`
 
 Browse `${GOCD_URL}`, then click **PIPELINES**.
 
-* Start pipeline `software-loading-manager`.
+* Unpause pipeline `software-loading-manager`, then click the "Trigger" button.
 
 Wait until pipeline `software-loading-manager` finishes, then review build log.
 
