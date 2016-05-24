@@ -74,7 +74,7 @@ This is a default Go.CD server deployed inside a Docker container.
 Service `goagent-docker` instantiates a new Go.CD agent inside a Docker container.
 This agent includes the `docker` and `docker-compose` commands to interact with the Docker engine used to run the Go.CD server and its agents.
 
-To connect to a different Docker engine, the agent should be customized by properly configuring the `DOCKER_HOST` environment variable. See https://docs.docker.com/machine/reference/env for details).
+To connect to a different Docker engine, the agent should be customized by properly configuring the `DOCKER_HOST` environment variable. See https://docs.docker.com/machine/reference/env for details.
 
 #### Service `goagent-yocto-genivi`
 
